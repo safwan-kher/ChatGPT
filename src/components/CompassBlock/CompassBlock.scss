@@ -1,0 +1,319 @@
+@import 'variables.scss';
+
+$highlightDuration: 8s;
+.compass-block {
+  background-image: url('/assets/compass-background.svg');
+  background-repeat: no-repeat;
+  background-position: 26% 0;
+  margin-top: -60px;
+  padding: 140px 0 0 0;
+  position: relative;
+
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 40px 0;
+    padding-right: 20px;
+  }
+  &__compass {
+    background-image: url('/assets/compass.png');
+    background-repeat: no-repeat;
+    height: 300px;
+    margin: 140px 0 0 70px;
+    position: relative;
+    width: 420px;
+    z-index: 200;
+
+    &__direction {
+      animation: highlight $highlightDuration linear infinite;
+      color: $grey;
+      cursor: default;
+      font-weight: 600;
+      font-size: 40px;
+      position: absolute;
+
+      &:nth-child(1) {
+        left: 120px;
+        top: -40px;
+      }
+      &:nth-child(2) {
+        animation-delay: $highlightDuration * 0.25;
+        left: -30px;
+        top: 30px;
+      }
+      &:nth-child(3) {
+        animation-delay: $highlightDuration * 0.5;
+        left: -100px;
+        top: 180px;
+      }
+      &:nth-child(4) {
+        animation-delay: $highlightDuration * 0.75;
+        left: 70px;
+        top: 290px;
+      }
+      &:hover {
+        color: $green !important;
+      }
+    }
+  }
+  &__list-holder {
+    position: relative;
+  }
+  &__floater {
+    position: absolute;
+    right: 100px;
+    top: -60px;
+  }
+  &__list-wrapper {
+    padding: 85px 120px 120px 120px;
+  }
+  &__list {
+    background-color: $backgroundAlt;
+    clip-path: url('#background-mask');
+    margin: 0 0 90px 0;
+
+    &__heading {
+      color: $black;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 45px;
+    }
+    &__item {
+      color: $black;
+      font-size: 24px;
+      list-style: none;
+      margin-bottom: 24px;
+      padding-left: 35px;
+      position: relative;
+
+      &::before,
+      &::after {
+        border-radius: 50%;
+        content: '';
+        left: 8px;
+        position: absolute;
+        top: 16px;
+      }
+      &::before {
+        background-color: $cta;
+        height: 10px;
+        transform: translate3d(-50%, -50%, 0);
+        width: 10px;
+      }
+      &::after {
+        animation: dotScale var(--list-items, 12s) ease-in-out infinite;
+        border: 2px solid rgba($cta, 0.3);
+        height: 40px;
+        transform: translate3d(-50%, -50%, 0) scale(0.2);
+        width: 40px;
+      }
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i})::after {
+          animation-delay: ($i - 1) * 2s;
+        }
+      }
+    }
+  }
+  &__bottom-wrapper {
+    margin-top: -150px;
+    position: relative;
+    top: 150px;
+    z-index: 200;
+  }
+  &__bottom {
+    background-color: $cta;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba($black, 0.15);
+    height: 100%;
+    padding: 45px;
+    position: relative;
+
+    &--alt {
+      background-color: $ctaAlt;
+    }
+    &__floater {
+      position: absolute;
+
+      &:nth-child(1) {
+        left: 30px;
+        top: -50px;
+      }
+      &:nth-child(2) {
+        left: 160px;
+        top: 10px;
+      }
+    }
+    &__button {
+      display: flex;
+      justify-content: flex-end;
+    }
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 39px;
+      padding: 40px 0 20px 0;
+    }
+    &__body {
+      color: $white;
+      font-size: 24px;
+      line-height: 29px;
+      padding-bottom: 20px;
+
+      p {
+        margin: 0;
+      }
+    }
+    &__info {
+      color: rgba($white, 0.7);
+      font-size: 24px;
+    }
+  }
+
+  @include mobile() {
+    background-image: url('/assets/compass-background-mobile.svg');
+    background-position: 55% 0;
+    padding: 40px $horizontalPaddingMobile 0 $horizontalPaddingMobile;
+
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin-right: 70px;
+    }
+    &__compass {
+      background-size: 300px;
+      height: 300px;
+      margin: 30px 0 0 70px;
+      width: calc(100% - 70px);
+
+      &__direction {
+        font-size: 30px;
+
+        &:nth-child(1) {
+          left: 120px;
+          top: -10px;
+        }
+        &:nth-child(2) {
+          left: -20px;
+          top: 30px;
+        }
+        &:nth-child(3) {
+          left: -70px;
+          top: 125px;
+        }
+        &:nth-child(4) {
+          left: 70px;
+          top: 200px;
+        }
+      }
+    }
+    &__floater {
+      display: none;
+    }
+    &__list-wrapper {
+      padding: 60px 30px;
+    }
+    &__list {
+      clip-path: url('#background-mask-mobile');
+      margin: 0 0 -60px 0;
+
+      &__heading {
+        line-height: 30px;
+        margin-bottom: 25px;
+      }
+      &__item {
+        font-size: 20px;
+      }
+    }
+    &__bottom-wrapper {
+      margin-top: 0;
+      top: 100px;
+    }
+    &__bottom {
+      margin-bottom: 15px;
+      padding: 30px;
+
+      &__floater {
+        &:nth-child(1) {
+          left: -20px;
+          top: -10px;
+        }
+        &:nth-child(2) {
+          left: 80px;
+          top: 20px;
+        }
+      }
+      &__title {
+        font-size: 24px;
+        line-height: 30px;
+        padding: 40px 0 20px 0;
+      }
+      &__body,
+      &__info {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+.slider-block--visible {
+  .compass-block__floater {
+    animation: floater1 3s ease-in-out infinite;
+  }
+  .compass-block__bottom__floater {
+    &:nth-child(1) {
+      animation: floater1 3s ease-in-out infinite;
+    }
+    &:nth-child(2) {
+      animation: floater2 3s ease-in-out infinite;
+    }
+
+    @include mobile() {
+      &:nth-child(1) {
+        animation-name: floaterMobile1Alt;
+        transform: scale(0.7);
+      }
+      &:nth-child(2) {
+        animation-name: floaterMobile2Alt;
+      }
+    }
+  }
+}
+
+@keyframes dotScale {
+  0% {
+    transform: translate3d(-50%, -50%, 0) scale(0.2);
+  }
+  3% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  6%, 7% {
+    transform: translate3d(-50%, -50%, 0) scale(0.2);
+  }
+  10% {
+    transform: translate3d(-50%, -50%, 0) scale(0.6);
+  }
+  13%, 100% {
+    transform: translate3d(-50%, -50%, 0) scale(0.2);
+  }
+}
+@keyframes highlight {
+  0% {
+    color: $grey;
+  }
+  1% {
+    color: $green;
+  }
+  24% {
+    color: $green;
+  }
+  25% {
+    color: $grey;
+  }
+  100% {
+    color: $grey;
+  }
+}

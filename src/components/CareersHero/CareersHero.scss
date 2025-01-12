@@ -1,0 +1,73 @@
+@import 'variables.scss';
+
+.careers-hero {
+  .full-width-outer {
+    background-color: $backgroundAlt;
+    position: relative;
+
+    &::after {
+      background: linear-gradient(175deg, $backgroundAlt 50%, $white 50%);
+      bottom: 0;
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 10vw;
+      width: 100vw;
+    }
+  }
+  .full-width-inner {
+    padding: 115px 0 calc(10vw + 25px) 0;
+    position: relative;
+  }
+  &__title {
+    color: $black;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+  &__text {
+    color: $black;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0 auto;
+    max-width: 660px;
+    text-align: center;
+  }
+  &__floater {
+    bottom: 3vw;
+    position: absolute;
+    right: 15vw;
+    z-index: 300;
+  }
+
+  @include mobile() {
+    .full-width-outer {
+      &::after {
+        background: linear-gradient(172deg, $backgroundAlt 50%, $white 50%);
+        height: 15vw;
+      }
+    }
+    .full-width-inner {
+      padding: 80px $horizontalPaddingMobile calc(10vh + 80px) $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 40px;
+      line-height: 45px;
+    }
+    &__text {
+      max-width: 100%;
+    }
+    &__floater {
+      bottom: -3vw;
+      right: 15vw;
+    }
+  }
+}
+
+.slider-block--visible {
+  .careers-hero__floater {
+    animation: floater1 3s ease-in-out infinite;
+  }
+}

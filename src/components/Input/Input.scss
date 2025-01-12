@@ -1,0 +1,161 @@
+@import "variables.scss";
+
+.input-only.input-only-light,
+.tel-input.input-only-light {
+  .label {
+    color: black;
+  }
+  .input,
+  .textarea {
+    background-color: white;
+    color: black;
+  }
+  .tel-input-field {
+    // background-color: white;
+    color: black;
+  }
+}
+
+// .tel-input.input-only-light {
+//   .error {
+//     color: $red;
+
+//     .input,
+//     .textarea {
+//       background-color: rgba($red, 0.05);
+//       border-color: $red;
+//     }
+//   }
+// }
+
+.input-only {
+  .label {
+    color: $white;
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .error {
+    color: $red;
+
+    .input,
+    .textarea {
+      background-color: rgba($red, 0.05);
+      border-color: $red;
+    }
+  }
+
+  .input,
+  .textarea {
+    background-color: rgba($white, 0.05);
+    border-radius: 4px;
+    border: 1px solid $grey;
+    color: $white;
+    font-weight: 400;
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+    margin-top: 3px;
+    padding: 0 15px;
+    transition: border-color $shortTransition ease-in-out;
+    width: 100%;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    @include mobile() {
+      margin-top: 7px;
+    }
+  }
+
+  .text-area-remove {
+    height: auto;
+  }
+
+  .textarea {
+    height: 180px;
+    line-height: 1.2;
+    padding: 10px 15px;
+    resize: vertical;
+  }
+
+  @include mobile() {
+    .label {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .input {
+      // height: 32px;
+    }
+  }
+}
+
+.tel-input {
+  .error {
+    color: $red;
+
+    .input,
+    .textarea {
+      background-color: rgba($red, 0.05);
+      border-color: $red;
+    }
+  }
+  .input:focus-within,
+  .input:focus {
+    outline: none;
+  }
+  .input {
+    background-color: rgba($white, 0.05);
+    border-radius: 4px;
+    border: 1px solid $grey;
+    color: $white;
+    font-weight: 400;
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+    margin-top: 3px;
+    padding: 0 0 0 15px;
+    transition: border-color $shortTransition ease-in-out;
+    width: 100%;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    @include mobile() {
+      margin-top: 7px;
+    }
+  }
+
+  .tel-input-field {
+    background-color: rgba($white, 0.05);
+    color: $white;
+    background: none;
+    font-size: 20px;
+    padding: 0 15px 0 6px;
+    margin-top: 0;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  .tel-input-field:focus-within,
+  .tel-input-field:focus {
+    outline: none;
+  }
+
+  @include mobile() {
+    .label {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .input {
+      // height: 32px;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+@import 'variables.scss';
+
+.core-values {
+  padding: 0 0 140px 0;
+
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 53px;
+    margin: 0 0 50px 0;
+  }
+  &__blocks-left {
+    padding: 45px 22px 0 0;
+    position: relative;
+
+    &__floater {
+      position: absolute;
+      right: 25px;
+      top: 0;
+    }
+  }
+  &__blocks-right {
+    padding-left: 22px;
+    position: relative;
+
+    &__floater {
+      bottom: -120px;
+      position: absolute;
+      right: 0;
+    }
+  }
+  &__block {
+    margin-bottom: 60px;
+    outline: 1px solid $greyDark;
+    padding: 55px 110px 55px 55px;
+    transition: outline $shortTransition ease-in-out;
+
+    &__heading {
+      color: $cta;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      margin: 0 0 20px 0;
+    }
+    &__text {
+      color: $greyDark;
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0;
+      transition: color $shortTransition ease-in-out;
+    }
+    &:hover {
+      outline: 5px solid $cta;
+    }
+    &:hover &__text {
+      color: $black;
+    }
+  }
+
+  @include mobile() {
+    padding: 0 10px 140px 10px;
+
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      padding: 0 #{$horizontalPaddingMobile - 10px};
+    }
+    &__blocks-left {
+      padding: 0;
+
+      &__floater {
+        right: 5px;
+        top: -55px;
+      }
+    }
+    &__blocks-right {
+      padding-left: 0;
+
+      &__floater {
+        bottom: -110px;
+        right: 0;
+      }
+    }
+    &__block {
+      margin-bottom: 30px;
+      padding: 40px;
+
+      &__heading {
+        font-size: 28px;
+        line-height: 33px;
+      }
+      &:hover {
+        outline: 1px solid $greyDark;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .core-values__blocks-left__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1Alt;
+    }
+  }
+  .core-values__blocks-right__floater {
+    animation: floater2 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile2Alt;
+    }
+  }
+}

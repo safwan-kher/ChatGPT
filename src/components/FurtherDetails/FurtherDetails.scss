@@ -1,0 +1,110 @@
+@import 'variables.scss';
+
+.further-details {
+  .full-width-outer {
+    background-color: $background;
+    position: relative;
+  }
+  .full-width-inner {
+    padding: 140px 0 60px 0;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 53px;
+    margin: 0 0 60px 0;
+  }
+  &__floater {
+    position: absolute;
+    right: 15%;
+    top: -90px;
+    z-index: 200;
+  }
+  &__heading {
+    color: $greyDark;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+  &__blocks {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+  }
+  &__block {
+    flex: 1;
+
+    &__value {
+      color: $black;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      padding-right: 20%;
+    }
+    &__label {
+      color: $black;
+      font-size: 18px;
+      letter-spacing: $letterSpacing / 2;
+      line-height: 20px;
+      padding-right: 20%;
+      text-transform: uppercase;
+    }
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 140px $horizontalPaddingMobile 20px $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 40px 0;
+    }
+    &__floater {
+      right: 0;
+      top: -90px;
+    }
+    &__heading {
+      font-weight: 700;
+      color: $greyLight;
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: $letterSpacing;
+      text-transform: uppercase;
+    }
+    &__blocks {
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    &__block {
+      flex: 1 1 50%;
+      margin-bottom: 25px;
+
+      &__value {
+        font-size: 30px;
+        padding-right: 0;
+      }
+      &:nth-child(odd) &__value,
+      &:nth-child(odd) &__label {
+        padding-right: 5px;
+      }
+      &:nth-child(even) &__value,
+      &:nth-child(even) &__label {
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .further-details__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1;
+    }
+  }
+}

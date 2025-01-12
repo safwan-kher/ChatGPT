@@ -1,0 +1,49 @@
+@import 'variables.scss';
+
+.careers-list {
+  padding-top: 40px;
+
+  &__item {
+    margin-bottom: 70px;
+
+    &__heading {
+      color: $cta;
+      font-weight: 600;
+      font-size: 34px;
+      line-height: 36px;
+      margin-bottom: 50px;
+    }
+    &__jobs {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__job {
+      color: $black;
+      display: block;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 35px;
+      text-decoration: none;
+      width: 50%;
+
+      &__title {
+        font-weight: 700;
+      }
+    }
+  }
+
+  @include mobile() {
+    padding: 40px $horizontalPaddingMobile 0 $horizontalPaddingMobile;
+
+    &__item {
+      margin-bottom: 70px;
+
+      &__heading {
+        margin-bottom: 30px;
+      }
+      &__job {
+        width: 100%;
+      }
+    }
+  }
+}

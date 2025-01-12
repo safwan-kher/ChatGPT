@@ -1,0 +1,163 @@
+@import "variables.scss";
+
+.community {
+  .full-width-outer {
+    background-image: url("/assets/community-background.svg");
+    background-repeat: no-repeat;
+    background-position: 45% bottom;
+  }
+  .full-width-inner {
+    padding: 270px 0 120px 0;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 20px 0;
+  }
+  &__text {
+    color: $black;
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0 0 80px 0;
+  }
+  &__item {
+    color: $black;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+
+    &__image {
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 220px;
+      position: relative;
+      z-index: 150;
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 24px;
+      margin: 0 auto 15px auto;
+      max-width: 380px;
+      position: relative;
+      z-index: 150;
+    }
+    &__text {
+      color: $greyDark;
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0 auto;
+      max-width: 380px;
+      position: relative;
+      z-index: 150;
+    }
+    &::after {
+      background-color: rgba($cta, 0.08);
+      clip-path: url("#background-mask");
+      content: "";
+      left: 50%;
+      height: 375px;
+      opacity: 0;
+      position: absolute;
+      top: 70%;
+      transform: translate3d(-50%, -50%, 0);
+      transition: opacity $shortTransition ease-in-out;
+      width: 500px;
+      z-index: 100;
+    }
+    &:hover &__image {
+      animation: floater1 3s ease-in-out infinite;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+  &__bottom {
+    background: $cta;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba($black, 0.15);
+    height: 180px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 200;
+
+    .row {
+      height: 100% !important;
+    }
+    &__floater {
+      left: 60px;
+      position: absolute;
+      top: -60px;
+    }
+    > div > div {
+      align-self: center;
+    }
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 39px;
+    }
+    &__title-sub {
+      color: $white;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 39px;
+    }
+    &__button {
+      text-align: center;
+    }
+  }
+
+  @include mobile() {
+    .full-width-outer {
+      overflow-x: hidden;
+    }
+    .full-width-inner {
+      margin-bottom: 140px;
+      padding: 80px $horizontalPaddingMobile;
+    }
+
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 15px 0;
+    }
+    &__text {
+      line-height: 1.2;
+      margin: 0 0 60px 0;
+    }
+    &__item {
+      padding: 0;
+    }
+    &__bottom {
+      background-color: $cta;
+      height: auto;
+      // Breaks some styles
+      // margin: 60px #{10px - $horizontalPaddingMobile} 0 #{10px - $horizontalPaddingMobile};
+      padding: 140px 12px 60px 12px;
+
+      &__floater {
+        top: -50px;
+      }
+      &__title {
+        padding: 10px 20px;
+        max-width: 100%;
+        text-align: center;
+      }
+      &__title-sub {
+        padding: 0 20px 20px 20px;
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .community__bottom__floater {
+    animation: floater1 3s ease-in-out infinite;
+  }
+}

@@ -1,0 +1,259 @@
+@import 'variables.scss';
+
+.curriculum {
+  padding: 100px 0 0 0;
+  position: relative;
+
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 25px 0;
+  }
+  &__text {
+    color: $black;
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 0 0 40px 0;
+  }
+  &__floater {
+    position: absolute;
+    right: -80px;
+    top: 200px;
+    z-index: 100;
+  }
+  &__items {
+    display: flex;
+    height: 350px;
+    position: relative;
+    width: 100%;
+  }
+  &__item {
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    transition: width $mediumTransition ease-in-out;
+    width: 20%;
+
+    &:first-child {
+      width: 40%;
+    }
+    &:hover {
+      width: 40% !important;
+    }
+    &__holder {
+      border-left: 1px solid $grey;
+      height: 50%;
+      padding: 5px 35px 15px 25px;
+      transition: height $mediumTransition ease-in-out;
+      width: 100%;
+
+      &::after {
+        background-color: $grey;
+        content: '';
+        height: 0;
+        position: absolute;
+        right: -1px;
+        top: 0;
+        transition: height $mediumTransition ease-in-out;
+        width: 1px;
+      }
+    }
+    &:first-child &__holder {
+      height: 100%;
+
+      &::after {
+        height: 100%;
+      }
+    }
+    &:hover &__holder {
+      height: 100% !important;
+
+      &::after {
+        height: 100% !important;
+      }
+    }
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 40px;
+      margin-bottom: 15px;
+      text-shadow: -1px -1px $grey, 1px -1px $grey, 1px 1px $grey, -1px 1px $grey;
+      transition: color $mediumTransition ease-in-out, text-shadow $mediumTransition ease-in-out;
+    }
+    &:first-child &__title {
+      color: $cta;
+      text-shadow: none;
+    }
+    &:hover &__title {
+      color: $cta !important;
+      text-shadow: none !important;
+    }
+    &__heading {
+      color: $black;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 28px;
+    }
+    &__subheading {
+      color: $greyDark;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      margin-top: 10px;
+    }
+    &__text {
+      color: $greyDark;
+      font-size: 20px;
+      line-height: 1.2;
+      margin-top: 15px;
+      opacity: 0;
+      position: relative;
+      transition: opacity $mediumTransition ease-in-out;
+    }
+    &:first-child &__text {
+      opacity: 1;
+    }
+    &:hover &__text {
+      opacity: 1 !important;
+    }
+    &__image {
+      bottom: -40px;
+      height: 250px;
+      left: 40%;
+      overflow: hidden;
+      pointer-events: none;
+      position: absolute;
+      transition: width $mediumTransition 0s ease-in-out;
+      transform: translate3d(0, 100%, 0);
+      width: 0;
+      z-index: 200;
+
+      img {
+        clip-path: url('#image-mask-small-mirror');
+        display: block;
+        min-height: 100%;
+        width: 370px;
+      }
+    }
+    &:first-child &__image {
+      transition-delay: $mediumTransition;
+      width: 100%;
+    }
+    &:hover &__image {
+      transition-delay: $mediumTransition;
+      width: 100% !important;
+    }
+  }
+  &__items:hover &__item {
+    width: 20%;
+
+    &__holder {
+      height: 50%;
+
+      &::after {
+        height: 0;
+      }
+    }
+    &__title {
+      color: $white;
+      text-shadow: -1px -1px $grey, 1px -1px $grey, 1px 1px $grey, -1px 1px $grey;
+    }
+    &__text {
+      opacity: 0;
+    }
+    &__image {
+      width: 0;
+    }
+  }
+
+  @include mobile() {
+    padding: 100px $horizontalPaddingMobile;
+
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 15px 0;
+    }
+    &__text {
+      line-height: 1.2;
+      margin: 0 0 60px 0;
+    }
+    &__floater {
+      display: none;
+    }
+    &__items {
+      display: block;
+      height: auto;
+    }
+    &__item {
+      background-image: url('/assets/icons/expand.svg');
+      background-repeat: no-repeat;
+      background-position: right 23px top 40px;
+      position: relative;
+      width: 100%;
+
+      &:first-child {
+        width: 100%;
+      }
+      &:hover {
+        background-image: none;
+        width: 100% !important;
+      }
+      &__holder {
+        border-left: none;
+        border-top: 1px solid $grey;
+        height: 100%;
+        padding: 30px 0;
+        transition: height $mediumTransition ease-in-out;
+        width: 100%;
+
+        &::after {
+          display: none;
+        }
+      }
+      &:first-child &__title {
+        color: $white;
+        text-shadow: -1px -1px $grey, 1px -1px $grey, 1px 1px $grey, -1px 1px $grey;
+      }
+      &__text {
+        display: none;
+      }
+      &:hover &__text {
+        display: block;
+        opacity: 1;
+      }
+      &__image {
+        display: none;
+        height: auto;
+        left: 0;
+        overflow: initial;
+        top: 0;
+        width: 100%;
+
+        img {
+          min-height: auto;
+          position: relative;
+          width: 100%;
+        }
+      }
+      &:hover &__image {
+        display: block;
+      }
+    }
+    &__items:hover &__item {
+      width: 100%;
+    }
+  }
+}
+
+.slider-block--visible {
+  .curriculum__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1;
+    }
+  }
+}

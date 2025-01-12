@@ -1,0 +1,140 @@
+@import "variables.scss";
+
+.card {
+  max-width: 1064px;
+  margin: 0 auto;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.03))
+    drop-shadow(0 0px 8px rgba(0, 0, 0, 0.08));
+  background-color: white;
+  padding: 40px 56px;
+  border-radius: 4px;
+  overflow: visible;
+  * {
+    margin: 0;
+  }
+  @include mobile() {
+    padding: 20px 28px;
+  }
+}
+
+.requirements-section {
+  padding-right: 1rem;
+
+  @include mobile() {
+    padding-right: 0;
+  }
+}
+
+.card:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.partner-course-logo {
+  width: auto;
+  height: auto;
+  max-height: 48px;
+  max-width: 50%;
+  padding-left: 1rem;
+  @include mobile() {
+    padding-left: 0;
+  }
+}
+
+.partner-course-flex-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @include mobile() {
+    > *:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.partner-course-flex-between.partner-course-flex-between-end {
+  align-items: flex-end;
+  @include mobile() {
+    align-items: flex-start;
+  }
+}
+
+@include desktop() {
+  .partner-course-flex-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.partner-course-flex-between-reverse {
+  @include mobile() {
+    flex-direction: column-reverse;
+    > *:not(:last-child) {
+      margin-bottom: 0rem;
+    }
+    > *:not(:first-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.wrap-text {
+  flex-shrink: 1;
+}
+
+.card-section {
+  margin-top: 21px;
+}
+
+.card-small-section {
+  margin-top: 19px;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 600;
+  flex-shrink: 1;
+  overflow-wrap: anywhere;
+}
+
+.subtitle {
+  margin-bottom: 0.25rem;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.base-text {
+  font-size: 18px;
+}
+
+.small-subtitle {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: $greyDark;
+  font-size: 20px;
+}
+
+.small-text {
+  color: $greyDark;
+  font-size: 18px;
+}
+
+.payment-list {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.payment-list > li::marker {
+  color: $cta;
+}
+
+.list-itemx {
+  left: 0.5rem;
+  position: relative;
+}
+
+.space-y-md > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
