@@ -1,0 +1,35 @@
+@import "variables.scss";
+
+.row {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  height: 100%;
+  row-gap: 0;
+
+  @include mobile() {
+    column-gap: 10px;
+  }
+}
+.col-0 {
+  display: none;
+}
+.col-0-sm {
+  @include mobile() {
+    display: none;
+  }
+}
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    grid-column: auto / span #{$i};
+
+    .row {
+      height: auto;
+    }
+  }
+  .col-#{$i}-sm {
+    @include mobile() {
+      grid-column: auto / span #{$i} !important;
+    }
+  }
+}

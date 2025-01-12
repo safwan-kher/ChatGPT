@@ -1,0 +1,84 @@
+// Colours
+$white: #fff;
+$background: #f8f8f8;
+$backgroundAlt: #f6f3ff;
+$backgroundAlt2: #f3efff;
+$backgroundAlt3: #faf8ff;
+$backgroundLight: #fbf9ff;
+$backgroundDark: #f1f1f1;
+$grey: #c4c4c4;
+$greyMiddle: #d9d9d9;
+$greyLight: #aaaaaa;
+$greyDark: #6a6a6a;
+$extraDark: #1e2833;
+$black: #000;
+$ctaLight: #ede9ff;
+$cta: #481bff;
+$ctaDark: #3206e2;
+$ctaAlt: #6640ff;
+$green: #43e1bc;
+$red: #f04923;
+$pillPink: #c41bff;
+$pillGreen: #34be95;
+$pillDarkGray: #4d4d4d;
+$pillYellow: #f4c832;
+$pillGreyBlue: #00a3ff;
+$pillOrange: #ff881b;
+$pillPurple: #72197f;
+$yellowLight: #fff5d1;
+$blueLight: #d4f0ff;
+$orangeLight: #ffe2c7;
+$navyLight: #c8dbf8;
+$pinkLight: #ffe3f9;
+$greenLight: #ecffe3;
+
+// Dimensions
+$maxWidth: 1440px;
+$headerHeight: 60px;
+$letterSpacing: 2px;
+$horizontalPaddingMobile: 17px;
+
+// Durations
+$shortTransition: 150ms;
+$mediumTransition: 300ms;
+$longTransition: 600ms;
+$loadingDuration: 900ms;
+
+// Fonts
+$regularFont: "TT Commons Trial Regular";
+$mediumFont: "TT Commons Trial Medium";
+$boldFont: "TT Commons Trial Bold";
+$demiBoldFont: "TT Commons Trial DemiBold";
+$ttCommons: "TT Commons";
+
+// Mixins
+@mixin mobileSmall() {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
+@mixin mobile() {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+@mixin medium() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin desktop() {
+  @media (min-width: 641px) {
+    @content;
+  }
+}
+@mixin desktopLarge() {
+  @media (min-width: $maxWidth) {
+    @content;
+  }
+}

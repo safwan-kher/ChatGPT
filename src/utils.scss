@@ -1,0 +1,45 @@
+@import "variables.scss";
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 600;
+}
+
+.bg-pink {
+  background-color: $pillPink;
+}
+
+.bg-yellow {
+  background-color: $pillYellow;
+}
+
+.bg-green {
+  background-color: $pillGreen;
+}
+
+.bg-purple {
+  background-color: $pillPurple;
+}
+
+.bg-orange {
+  background-color: $pillOrange;
+}
+
+.bg-blue {
+  background-color: $pillGreyBlue;
+}
+
+.bg-gray {
+  background-color: $pillDarkGray;
+}

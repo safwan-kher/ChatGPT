@@ -1,0 +1,237 @@
+@import "variables.scss";
+@import "fonts.scss";
+@import "grid.scss";
+@import "utils.scss";
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: 0;
+}
+html,
+body {
+  background-color: $white;
+  font-family: $ttCommons, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  &.overlay {
+    overflow: hidden;
+  }
+}
+a {
+  color: inherit;
+}
+b,
+strong {
+  font-weight: 700;
+}
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.slider-block {
+  .slider {
+    opacity: 0.05;
+    transform: translate3d(0, 25px, 0);
+    transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
+    transition-delay: 200ms;
+
+    @for $i from 1 through 8 {
+      &.slider-delay-#{$i} {
+        transition-delay: ($i + 1) * 200ms;
+      }
+    }
+  }
+  &--activated .slider {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.image-masks > * {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+}
+.app {
+  background-color: $white;
+  height: 100%;
+  margin: 0 auto;
+  max-width: $maxWidth;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+
+  .main {
+    min-height: 600px;
+    padding-top: $headerHeight + 40px;
+  }
+  .full-width-outer {
+    left: calc(((100vw - 100%) / 2) * -1);
+    position: relative;
+    width: 100vw;
+  }
+  .full-width-inner {
+    margin: 0 auto;
+    max-width: $maxWidth;
+    width: 100%;
+  }
+  .hide-on-mobile {
+    @include mobile() {
+      display: none;
+    }
+  }
+  .hide-on-desktop {
+    @include desktop() {
+      display: none;
+    }
+  }
+}
+
+nav .header__nav__item.hide-on-desktop {
+  @include desktop() {
+    display: none;
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes floater1 {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes floater2 {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 10px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes floater3 {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(0, -4px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes floaterMobile1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0) scale(0.5);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+}
+@keyframes floaterMobile1Alt {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0) scale(0.7);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+  }
+}
+@keyframes floaterMobile2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+  50% {
+    transform: translate3d(0, 10px, 0) scale(0.5);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+}
+@keyframes floaterMobile2Alt {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+  }
+  50% {
+    transform: translate3d(0, 10px, 0) scale(0.7);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+  }
+}
+@keyframes floaterMobile3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+  25% {
+    transform: translate3d(0, -4px, 0) scale(0.5);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+.dev {
+  img[class*="__floater"] {
+    animation-iteration-count: 1 !important;
+    animation-fill-mode: forwards;
+
+    @include mobile() {
+      transform: scale(0.5);
+    }
+  }
+}
