@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /de/fur-jobcoaches
+Disallow: /en/landing-page
+Disallow: /en/landing-page-women-in-tech
+Disallow: /en/jobs-tomorrow-landing-page
+Disallow: /en/syrian-youth-assembly-landing-page
+Disallow: /en/landing-page-jobs-4-refugees
+Disallow: /en/landing-page-one-on-one-introduction-to-web-development
+Disallow: /en/landing-page-tbd-community
+Disallow: /en/landing-page-berlin-cheap
+Disallow: /en/landing-page-mentorme
+Disallow: /en/landing-page-simple-germany
+Disallow: /de/landing-page
+Disallow: /de/landing-page-de-einzelkurs-code-intro-women-in-tech
+Disallow: /de/landing-page-woloho
+Disallow: /de/landing-page-tech-berufen-mit-kind
+Disallow: /de/landing-page-jobcoaches-germany
+Disallow: /de/landing-page-de-einzelkurs-code-intro
+Disallow: /de/landing-page-woloho-code-mentor
+
+Sitemap: https://startsteps.org/sitemap.xml
