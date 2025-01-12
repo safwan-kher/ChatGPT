@@ -1,0 +1,76 @@
+@import 'variables.scss';
+
+.supporters {
+  position: relative;
+
+  .full-width-outer {
+    padding: 60px 0;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 40px 0;
+    text-align: center;
+  }
+  &__logos {
+    align-items: center;
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+    width: 100%;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      height: 120px;
+      min-width: calc(100vw / 12);
+
+      @include desktopLarge() {
+        min-width: calc(((100vw - #{$maxWidth}) / 2) + (#{$maxWidth} / 12));
+      }
+    }
+    &__wrapper {
+      height: 120px;
+      overflow: hidden;
+      width: 100%;
+    }
+    &__item {
+      margin-right: 30px;
+
+      img {
+        display: block;
+        filter: grayscale(100%);
+        object-fit: contain;
+        opacity: 0.5;
+        max-height: 100px;
+        max-width: 160px;
+        transition: filter $mediumTransition ease-in-out, opacity $mediumTransition ease-in-out;
+
+        &:hover {
+          filter: grayscale(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @include mobile() {
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 15px 0;
+    }
+    &__logos {
+      &:before,
+      &:after {
+        min-width: $horizontalPaddingMobile;
+      }
+      &__item {
+        pointer-events: none;
+      }
+    }
+  }
+}

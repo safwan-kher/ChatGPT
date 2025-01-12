@@ -1,0 +1,84 @@
+@import 'variables.scss';
+
+.partner-details {
+  .full-width-outer {
+    background-color: $backgroundDark;
+  }
+  .full-width-inner {
+    padding: 100px 0 80px 0;
+  }
+  &__heading {
+    color: $black;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 36px;
+    margin: 0 0 25px 0;
+  }
+  &__course {
+    color: $black;
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+
+    &__title {
+      font-weight: 700;
+      font-size: 24px;
+      margin: 0;
+    }
+    &__text {
+      margin: 0;
+    }
+  }
+  &__availability {
+    color: $black;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+  }
+  &__floater {
+    bottom: 140px;
+    position: absolute;
+    right: 20%;
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 60px 50px;
+    }
+    &__heading {
+      font-size: 28px;
+    }
+    &__course {
+      font-size: 18px;
+      margin-bottom: 25px;
+
+      &__title {
+        font-weight: 700;
+      }
+    }
+    &__availability {
+      font-size: 18px;
+    }
+    &__button {
+      padding-top: 70px;
+    }
+    &__floater {
+      bottom: -60px;
+      right: 0;
+    }
+  }
+}
+
+.slider-block--visible {
+  .partner-details__floater {
+    animation: floater2 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile2Alt;
+    }
+  }
+}

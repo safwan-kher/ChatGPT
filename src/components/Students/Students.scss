@@ -1,0 +1,151 @@
+@import 'variables.scss';
+
+.students {
+  position: relative;
+
+  .full-width-outer {
+    padding: 140px 0 40px 0;
+  }
+  &__floater {
+    position: absolute;
+    right: calc(100vw / 12);
+    top: 80px;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 25px 0;
+  }
+  &__text {
+    color: $black;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  &__items {
+    overflow: hidden;
+    padding-top: 95px;
+    width: 100%;
+
+    &__item-scroller {
+      align-items: flex-start;
+      display: flex;
+      transition: transform $mediumTransition ease-in-out;
+      width: 100%;
+
+      &:before,
+      &:after {
+        content: '';
+        display: block;
+        height: 30px;
+        min-width: calc(100vw / 12);
+
+        @include desktopLarge() {
+          min-width: calc(((100vw - #{$maxWidth}) / 2) + (#{$maxWidth} / 12));
+        }
+      }
+    }
+    &__item {
+      background-color: $backgroundLight;
+      border-radius: 4px;
+      margin-right: 30px;
+      min-width: 320px;
+      max-width: 320px;
+      position: relative;
+
+      &__image {
+        border-radius: 50%;
+        display: block;
+        left: 50%;
+        object-fit: cover;
+        height: 90px;
+        position: absolute;
+        transform: translate3d(-50%, 0, 0);
+        top: -45px;
+        width: 90px;
+      }
+      &__name {
+        font-weight: 600;
+        font-size: 24px;
+        margin-top: 60px;
+        text-align: center;
+      }
+      &__quote {
+        background-image: url('/assets/quotes.svg');
+        background-position: 6px 0;
+        background-repeat: no-repeat;
+        font-size: 20px;
+        line-height: 1.2;
+        margin-top: -10px;
+        padding: 30px 30px 50px 30px;
+      }
+    }
+  }
+  &__arrows {
+    text-align: right;
+    padding-top: 40px;
+  }
+  &__arrow {
+    background-color: rgba($backgroundAlt, 0);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: 1px solid $cta;
+    cursor: pointer;
+    display: inline-block;
+    height: 48px;
+    margin-left: 30px;
+    transition: background-color $shortTransition ease-in-out;
+    width: 48px;
+
+    &:hover {
+      background-color: $backgroundAlt;
+    }
+
+    &:nth-child(1) {
+      background-image: url('/assets/direction-left.svg');
+      background-position: 16px center;
+    }
+    &:nth-child(2) {
+      background-image: url('/assets/direction-right.svg');
+      background-position: 18px center;
+    }
+  }
+
+  @include mobile() {
+    .full-width-outer {
+      padding: 60px 0;
+    }
+    .full-width-inner {
+      padding: 0 $horizontalPaddingMobile;
+    }
+    &__floater {
+      right: 0;
+      top: 30px;
+    }
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 15px 0;
+    }
+    &__text {
+      line-height: 1.2;
+    }
+    &__items {
+      &:before,
+      &:after {
+        min-width: $horizontalPaddingMobile;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .students__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1;
+    }
+  }
+}

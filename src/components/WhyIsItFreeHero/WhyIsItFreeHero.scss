@@ -1,0 +1,94 @@
+@import 'variables.scss';
+
+.whyisitfree-hero {
+  .full-width-outer {
+    background-color: $backgroundAlt;
+    position: relative;
+
+    &::after {
+      background: linear-gradient(185deg, $backgroundAlt 50%, $white 50%);
+      bottom: 0;
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 10vw;
+      width: 100vw;
+    }
+  }
+  .full-width-inner {
+    padding: 115px 0 10vw 0;
+    position: relative;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 40px 0;
+    text-align: center;
+  }
+  &__text {
+    color: $black;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+  }
+  &__floater {
+    bottom: 3vw;
+    left: 8%;
+    position: absolute;
+    z-index: 300;
+  }
+  &__bottom-text {
+    color: $black;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 60px 0 150px 0;
+  }
+  &__image {
+    margin: 60px 20px 0 20px;
+    width: calc(100% - 40px);
+  }
+
+  @include mobile() {
+    .full-width-outer {
+      &::after {
+        background: linear-gradient(188deg, $backgroundAlt 50%, $white 50%);
+        height: 15vw;
+      }
+    }
+    .full-width-inner {
+      padding: 80px $horizontalPaddingMobile calc(15vw + 20px) $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 40px;
+      line-height: 45px;
+    }
+    &__text {
+      max-width: 100%;
+    }
+    &__floater {
+      bottom: -9vw;
+      right: 15vw;
+    }
+    &__bottom-text {
+      padding: 100px $horizontalPaddingMobile 0 $horizontalPaddingMobile;
+      margin: 0;
+    }
+    &__image {
+      margin: 60px 10% 110px 10%;
+      width: 80%;
+    }
+  }
+}
+
+.slider-block--visible {
+  .whyisitfree-hero__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1Alt;
+    }
+  }
+}

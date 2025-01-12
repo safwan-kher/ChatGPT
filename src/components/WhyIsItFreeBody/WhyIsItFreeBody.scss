@@ -1,0 +1,56 @@
+@import 'variables.scss';
+
+.whyisitfree-body {
+  .full-width-outer {
+    background-color: $backgroundDark;
+  }
+  .full-width-inner {
+    padding: 115px 0 90px 0;
+    position: relative;
+  }
+  &__title {
+    color: $black;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 51px;
+    margin: 0 0 40px 0;
+    text-align: center;
+  }
+  &__text {
+    color: $black;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  &__floater {
+    position: absolute;
+    right: 10%;
+    top: -80px;
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 80px $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    &__text {
+      max-width: 100%;
+    }
+    &__floater {
+      bottom: -9vw;
+      right: 15vw;
+    }
+  }
+}
+
+.slider-block--visible {
+  .whyisitfree-body__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1Alt;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import 'variables.scss';
+
+.loading {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 600px;
+
+  &--error &__dots {
+    display: none;
+  }
+  &__dots {
+    display: flex;
+  }
+  &__dot {
+    animation: loading $loadingDuration ease-in-out infinite;
+    border-radius: 50%;
+    height: 16px;
+    margin: 0 10px;
+    opacity: 0;
+    width: 16px;
+
+    &:nth-child(1) {
+      background-color: $cta;
+    }
+    &:nth-child(2) {
+      animation-delay: $loadingDuration/3;
+      background-color: $green;
+    }
+    &:nth-child(3) {
+      animation-delay: $loadingDuration/3*2;
+      background-color: $black;
+    }
+  }
+  &__error {
+    color: $black;
+    font-size: 20px;
+  }
+}

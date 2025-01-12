@@ -1,0 +1,190 @@
+@import 'variables.scss';
+
+.team {
+  .full-width-outer {
+    background-color: $backgroundDark;
+  }
+  .full-width-inner {
+    padding: 160px 0;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 80px 0;
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    margin: 0 30px 110px 30px;
+    position: relative;
+    width: calc(100%/3 - 60px);
+
+    &__image {
+      position: relative;
+
+      &__main {
+        clip-path: url('#image-mask-small');
+        position: relative;
+        width: 100%;
+        z-index: 200;
+
+        img {
+          display: block;
+          transform: scale(1);
+          transition: transform $mediumTransition ease-in-out;
+          width: 100%;
+        }
+      }
+      &__background {
+        background-color: $cta;
+        clip-path: url('#image-mask-small-mirror');
+        height: 100%;
+        left: 10px;
+        position: absolute;
+        top: 0;
+        transform: rotate(-2deg);
+        transition: transform $mediumTransition ease-in-out;
+        width: 100%;
+        z-index: 100;
+
+        &::after {
+          background-color: $backgroundDark;
+          clip-path: url('#image-mask-small-mirror');
+          content: '';
+          height: calc(100% - 2px);
+          left: 1px;
+          opacity: 1;
+          position: absolute;
+          top: 1px;
+          transition: opacity $mediumTransition ease-in-out;
+          width: calc(100% - 2px);
+          z-index: 150;
+        }
+      }
+      &__content-wrapper {
+        bottom: 90px;
+        position: absolute;
+        left: 0;
+        padding: 0 20px 0 50px;
+      }
+      &__content {
+        background-color: rgba($cta, 0.3);
+        clip-path: url('#image-mask-small');
+        left: 0;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transition: opacity $mediumTransition ease-in-out;
+        width: 100%;
+        z-index: 300;
+
+        &__name,
+        &__description {
+          color: $white;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+        &__name {
+          font-size: 30px;
+        }
+        &__description {
+          display: inline-block;
+          font-size: 18px;
+        }
+        &__link {
+          bottom: 60px;
+          left: 50px;
+          position: absolute;
+
+          img {
+            display: block;
+            height: 26px;
+            position: relative;
+            top: 4px;
+            width: 26px;
+          }
+        }
+      }
+      &--flipped &__main {
+        clip-path: url('#image-mask-small-mirror');
+      }
+      &--flipped &__background {
+        clip-path: url('#image-mask-small');
+        left: -10px;
+        transform: rotate(2deg);
+
+        &::after {
+          clip-path: url('#image-mask-small');
+        }
+      }
+      &--flipped &__content {
+        clip-path: url('#image-mask-small-mirror');
+      }
+      &:hover &__main img {
+        transform: scale(1.1);
+      }
+      &--flipped:hover &__background {
+        transform: rotate(-1deg);
+      }
+      &:hover &__background {
+        transform: rotate(1deg);
+
+        &:after {
+          opacity: 0;
+        }
+      }
+      &:hover &__content {
+        opacity: 1;
+      }
+    }
+  }
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__button {
+    position: relative;
+
+    &__floater {
+      position: absolute;
+      right: -80px;
+      pointer-events: none;
+      top: -34px;
+    }
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 130px $horizontalPaddingMobile 160px $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 60px 0;
+    }
+    &__item {
+      margin-bottom: 70px;
+      width: 100%;
+    }
+    &__button {
+      &__floater {
+        right: -70px;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .team__button__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1Alt;
+    }
+  }
+}

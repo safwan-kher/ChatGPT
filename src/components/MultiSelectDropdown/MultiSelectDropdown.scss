@@ -1,0 +1,123 @@
+@import "variables.scss";
+
+.multiselect {
+  .container {
+    border: 2px solid $cta;
+    // padding: 18px 24px;
+    border-radius: 4px;
+  }
+
+  .label {
+    position: absolute;
+    top: 0;
+    color: black;
+    background-color: white;
+    font-size: 20px;
+    margin-top: -14px;
+    padding: 0 6px;
+    margin-left: 18px;
+  }
+
+  .flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .open-selector {
+    cursor: pointer;
+    padding: 18px 24px;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .checkbox {
+    margin-right: 12px;
+    appearance: none;
+    border: 1px solid $cta;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .checkbox:checked {
+    background-color: $cta;
+  }
+
+  .checkbox:before {
+    content: "";
+    background-image: url("/assets/icons/checkbox-check.svg");
+    background-size: 12px 12px;
+    width: 22px;
+    height: 22px;
+    margin-top: -1px;
+    margin-left: -1px;
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .selector-checkbox {
+    padding: 24px;
+    cursor: pointer;
+  }
+
+  .option {
+    font-size: 20px;
+  }
+
+  .option:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+  }
+
+  .selector {
+    position: relative;
+  }
+
+  .options {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    border-radius: 4px;
+    filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03))
+      drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+  }
+
+  .wrapper {
+    position: relative;
+  }
+
+  .icon {
+    color: $cta;
+    font-size: 0.8rem;
+  }
+
+  .option-text {
+    word-break: break-word;
+  }
+
+  button {
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    text-transform: none;
+    -webkit-appearance: button;
+    border: 0;
+  }
+
+  .selected {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

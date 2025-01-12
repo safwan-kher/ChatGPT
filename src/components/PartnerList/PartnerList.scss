@@ -1,0 +1,58 @@
+@import 'variables.scss';
+
+.partner-list {
+  position: relative;
+  z-index: 150;
+
+  .full-width-outer {
+    background-color: $backgroundAlt;
+    margin-top: -100px;
+  }
+  .full-width-inner {
+    padding: 60px 0;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 45px;
+    margin: 0;
+    text-align: center;
+  }
+  &__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+      height: 100%;
+      margin: 40px;
+
+      img {
+        display: block;
+        max-height: 120px;
+        max-width: 200px;
+      }
+    }
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 60px $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 35px;
+    }
+    &__logos {
+      &__item {
+        max-width: calc(50% - 60px);
+        margin: 30px;
+        min-width: calc(50% - 60px);
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+  }
+}

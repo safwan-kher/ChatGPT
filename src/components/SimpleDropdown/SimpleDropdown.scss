@@ -1,0 +1,108 @@
+@import 'variables.scss';
+
+.simple-dropdown {
+  display: flex;
+
+  &__current,
+  &__list__item {
+    color: $black;
+    display: block;
+    text-transform: uppercase;
+    transition: color $shortTransition ease-in-out;
+    white-space: nowrap;
+  }
+  select,
+  &__current {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: $letterSpacing;
+    padding: 10px 25px;
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+      background-image: url('/assets/icons/dropdown-arrow.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      content: '';
+      height: 8px;
+      position: absolute;
+      right: 10px;
+      top: calc(50% - 4px);
+      transition: transform $shortTransition ease-in-out;
+      width: 8px;
+    }
+    &:hover::after {
+      transform: rotate(60deg);
+    }
+  }
+  select {
+    appearance: none;
+    background-color: transparent;
+    background-image: url('/assets/icons/dropdown-arrow.svg');
+    background-position: right center;
+    background-repeat: no-repeat;
+    border: none;
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+  &__list {
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 5px 5px 20px rgba($black, 0.15);
+    left: 15px;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 35px;
+    transition: opacity $shortTransition ease-in-out;
+    min-width: 100%;
+    z-index: 100;
+
+    &--closed {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    &__heading {
+      color: $greyLight;
+      cursor: default;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0;
+      padding: 5px 10px;
+      text-transform: none;
+      user-select: none;
+    }
+    &__item {
+      border-top: 1px solid $backgroundDark;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: normal;
+      padding: 5px 10px;
+      text-transform: none;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:hover {
+        background-color: $background;
+      }
+      &--active {
+        color: $cta;
+      }
+    }
+  }
+  &__current:hover &__list {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @include mobile() {
+    &__list {
+      display: none;
+    }
+  }
+}

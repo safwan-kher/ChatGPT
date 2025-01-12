@@ -1,0 +1,134 @@
+@import 'variables.scss';
+
+.sign-up {
+  position: relative;
+
+  .full-width-outer {
+    background-color: $cta;
+  }
+  .full-width-inner {
+    overflow: hidden;
+    padding: 100px 0;
+
+    input[type=text] {
+      margin-right: 1px;
+    }
+  }
+  &__block-wrapper {
+    order: 1;
+    padding: 0 20px;
+  }
+  &__title {
+    color: $white;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 25px 0;
+  }
+  &__checkboxes {
+    margin-top: 30px;
+  }
+  &__button {
+    margin-top: 40px;
+  }
+  &__message {
+    color: $white;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  &__floater-wrapper {
+    position: relative;
+  }
+  &__floater {
+    pointer-events: none;
+    position: absolute;
+    right: -120px;
+    top: -40px;
+  }
+  &__button-block {
+    background-color: $ctaDark;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &__image {
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      transition: transform $mediumTransition ease-in-out;
+      transform-origin: right center;
+      z-index: 100;
+    }
+    &:nth-child(1) &__image {
+      bottom: 40px;
+    }
+    &__inner {
+      background-color: rgba($black, 0.3);
+      border-radius: 4px;
+      padding: 45px;
+      position: relative;
+      width: 100%;
+      z-index: 200;
+    }
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 39px;
+      max-width: 80%;
+      min-height: 90px;
+      margin-bottom: 30px;
+    }
+    &:hover &__image {
+      transform: scale(1.1);
+    }
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 30px $horizontalPaddingMobile 100px $horizontalPaddingMobile;
+    }
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 40px 0;
+    }
+    &__block-wrapper {
+      order: 0;
+      padding: 0;
+    }
+    &__floater {
+      right: -20px;
+      top: 0;
+    }
+    &__button-block {
+      margin-bottom: 15px;
+
+      &__inner {
+        padding: 45px 15px 40px 15px;
+      }
+      &__title {
+        margin-bottom: 20px;
+        max-width: none;
+        text-align: center;
+      }
+      &__button {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .sign-up__floater {
+    animation: floater1 3s ease-in-out infinite;
+
+    @include mobile() {
+      animation-name: floaterMobile1;
+    }
+  }
+}

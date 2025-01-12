@@ -1,0 +1,46 @@
+@import 'variables.scss';
+
+.video-block-title {
+  font-weight: bold;
+  font-size: 65px;
+  margin: 0;
+}
+
+.video-block .full-width-inner {
+  padding: 0 2rem;
+}
+
+.video-block-subtitle {
+  margin-top: 1rem;
+  font-size: 20px;
+  margin-bottom: 4rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-block-header {
+  position: relative;
+}
+
+.video-block-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 80px;
+
+  @include mobile() {
+    height: 60px;
+  }
+}

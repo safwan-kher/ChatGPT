@@ -1,0 +1,99 @@
+@import 'variables.scss';
+
+.prefooterblocks {
+  .full-width-outer {
+    background-color: $backgroundAlt3;
+    padding: 40px 0;
+    position: relative;
+
+    &:before {
+      background-color: $black;
+      bottom: 0;
+      content: '';
+      height: 220px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+  &__blocks {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__block {
+    background-color: $backgroundAlt2;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba($black, 0.15);
+    height: 100%;
+    padding: 120px 45px 45px 45px;
+    position: relative;
+    width: calc(50% - 12px);
+
+    &--alt {
+      background-color: $cta;
+    }
+    &__floater {
+      position: absolute;
+      top: -40px;
+    }
+    &--alt &__floater {
+      left: 0;
+      top: -100px;
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 39px;
+      padding: 40px 0 20px 0;
+    }
+    &__text {
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+    &--alt &__title,
+    &--alt &__text {
+      color: $white;
+    }
+  }
+
+  @include mobile() {
+    .full-width-outer {
+      padding: 40px 0 0 0;
+
+      &:before {
+        height: 220px;
+      }
+    }
+    &__blocks {
+      display: block;
+      padding-left: 12px;
+    }
+    &__block {
+      margin-bottom: 120px;
+      padding: 120px 24px 24px 24px;
+      width: calc(100% - 12px);
+
+      &--alt {
+        margin-bottom: 0;
+      }
+      &__floater {
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+      }
+      &--alt &__floater {
+        left: 50%;
+        top: -100px;
+      }
+      &__title {
+        font-size: 36px;
+        line-height: 39px;
+        padding: 40px 0 20px 0;
+      }
+      &__text {
+        font-size: 24px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
