@@ -1,0 +1,77 @@
+{
+  "name": "startsteps",
+  "version": "0.1.0",
+  "sideEffects": false,
+  "private": true,
+  "dependencies": {
+    "@egjs/flicking-plugins": "^4.3.0",
+    "@egjs/react-flicking": "^4.9.0",
+    "@headlessui/react": "^1.7.12",
+    "@headlessui/tailwindcss": "^0.1.2",
+    "@hookform/resolvers": "^2.8.8",
+    "@next/bundle-analyzer": "^11.0.1",
+    "@svgr/webpack": "^5.5.0",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/fs-extra": "^11.0.1",
+    "facebook-nodejs-business-sdk": "^18.0.4",
+    "fs-extra": "^11.1.0",
+    "googleapis": "^111.0.0",
+    "next": "^14.2.2",
+    "next-seo": "^6.4.0",
+    "node-fetch": "^2.6.1",
+    "pipedrive": "^12.0.1",
+    "react": "^18.2.0",
+    "react-cookie": "^7.0.1",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.27.1",
+    "react-modal": "^3.14.4",
+    "react-portal": "^4.2.2",
+    "react-schemaorg": "^2.0.0",
+    "react-share": "^4.2.1",
+    "sass": "^1.36.0",
+    "schema-dts": "^0.9.0",
+    "sitemap": "^7.1.1",
+    "typewriter-effect": "^2.17.0",
+    "xss": "^1.0.14",
+    "zod": "^3.13.4"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "fetchCourses": "ts-node fetchCourses.ts",
+    "fetchCoursepackage": "ts-node fetchCoursePackage.ts",
+    "prebuild": "node buildSitemap.js && npm run fetchCourses && npm run fetchCoursepackage"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.2.1",
+    "@types/node": "^17.0.12",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-helmet": "^6.1.2",
+    "@types/react-modal": "^3.13.1",
+    "@types/react-portal": "^4.0.4",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^7.31.0",
+    "eslint-config-next": "^11.0.1",
+    "netlify-cli": "^6.0.9",
+    "next-images": "^1.8.1",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.3"
+  }
+}
