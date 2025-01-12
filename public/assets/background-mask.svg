@@ -1,0 +1,5 @@
+<svg class="svg">
+  <clipPath id="background-mask" clipPathUnits="objectBoundingBox">
+    <path d="M1,0.008 C1,0.004,0.998,0,0.994,0 L0.006,0.052 C0.003,0.052,0,0.055,0,0.059 L0.029,0.864 C0.029,0.867,0.031,0.87,0.034,0.87 L0.921,1 C0.925,1,0.928,0.998,0.928,0.994 L1,0.008"></path>
+  </clipPath>
+</svg>
