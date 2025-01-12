@@ -1,0 +1,176 @@
+.testimonialsContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.testimonialsWrapper {
+    display: flex;
+    align-items: center; /* Ensures the slider and text are on the same line */
+    gap: 60px; /* Space between the text and slider */
+}
+
+.header {
+    flex: 0 0 300px; /* Fixed width for the header section */
+    text-align: left;
+}
+
+.header h1 {
+    color: #FF5722; /* Bright orange for "Testimonials" */
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.header h2 {
+    color: #274A78; /* Dark blue for subtitle */
+    font-size: 1.5rem;
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+    margin-top: 0;
+    line-height: 1.4;
+}
+
+.testimonialSlider {
+    flex: 1; /* Makes the slider take the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.testimonialCard {
+    display: flex; /* Flexbox for horizontal layout */
+    align-items: center; /* Ensures vertical alignment of image and text */
+    background-color: #fff;
+    border: 4px solid #FF5722; /* Thicker left border */
+    border-left: 25px solid #FF5722; /* Thicker and flat left border */
+    border-right: 2px solid #FF5722; /* Subtle right border */
+    border-radius: 0 15px 15px 0; /* Rounded corners only on the right side */
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    gap: 20px; /* Space between the image and content */
+}
+
+.testimonialCard img {
+    flex-shrink: 0; /* Ensures the image does not shrink when resizing */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    margin: 0; /* Removes any extra margins around the image */
+}
+
+.testimonialContent {
+    flex: 1; /* Makes the text container take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensures the text starts at the top */
+    gap: 10px;
+}
+
+.quoteHeader {
+    display: flex;
+    align-items: center; /* Ensures the quote icon aligns with the text */
+    gap: 10px;
+}
+
+.quoteMark svg {
+    width: 60px; /* Larger quote icon */
+    height: 60px;
+    fill: black; /* Black color for the quote icon */
+}
+
+.quoteContent h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+    color: #274A78; /* Dark blue for name */
+}
+
+.quoteContent p {
+    font-size: 1rem;
+    margin: 0;
+    color: #6C757D; /* Muted gray for position */
+}
+
+.quoteText {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333; /* Dark text color */
+    margin-top: 10px;
+}
+
+.readMore {
+    color: #FF5722; /* Bright orange for "Read More" */
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 0; /* Aligns "Read More" to the right */
+    align-self: flex-end; /* Pushes "Read More" to the far right */
+    transition: color 0.3s ease;
+}
+
+.readMore:hover {
+    color: #d84315;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.navigation button {
+    background-color: black; /* Black background for arrows */
+    color: white; /* White arrows */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.navigation button svg {
+    width: 24px;
+    height: 24px;
+    fill: white; /* White arrow color */
+}
+
+.navigation button:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonialsWrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .testimonialCard {
+        flex-direction: column; /* Stacks image and content vertically */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .testimonialCard img {
+        margin-bottom: 20px;
+    }
+
+    .readMore {
+        align-self: center; /* Aligns "Read More" to the center on mobile */
+    }
+}
