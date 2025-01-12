@@ -1,0 +1,185 @@
+@import 'variables.scss';
+
+.apply-now {
+  padding: 160px 0 130px 0;
+
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 64px;
+    margin: 0 0 40px 0;
+  }
+  &__text {
+    color: $greyLight;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: $letterSpacing;
+    line-height: 28px;
+    margin: 0 0 60px 0;
+    text-transform: uppercase;
+  }
+  &__item {
+    color: $black;
+    margin-bottom: 60px;
+    padding: 80% 20px 0 20px;
+    position: relative;
+    text-align: center;
+
+    &__image {
+      left: 20px;
+      position: absolute;
+      top: 0;
+      width: calc(100% - 40px);
+
+      &__main {
+        clip-path: url('#image-mask-small');
+        position: relative;
+        width: 100%;
+        z-index: 200;
+
+        img {
+          display: block;
+          transform: scale(1);
+          transition: transform $mediumTransition ease-in-out;
+          width: 100%;
+        }
+      }
+      &__background {
+        background-color: $cta;
+        clip-path: url('#image-mask-small-mirror');
+        height: 100%;
+        left: 10px;
+        position: absolute;
+        top: 0;
+        transform: rotate(-2deg);
+        transition: transform $mediumTransition ease-in-out;
+        width: 100%;
+        z-index: 100;
+
+        &::after {
+          background-color: $white;
+          clip-path: url('#image-mask-small-mirror');
+          content: '';
+          height: calc(100% - 2px);
+          left: 1px;
+          opacity: 1;
+          position: absolute;
+          top: 1px;
+          transition: opacity $mediumTransition ease-in-out;
+          width: calc(100% - 2px);
+          z-index: 150;
+        }
+      }
+      &--flipped &__main {
+        clip-path: url('#image-mask-small-mirror');
+      }
+      &--flipped &__background {
+        clip-path: url('#image-mask-small');
+        left: -10px;
+        transform: rotate(2deg);
+
+        &::after {
+          clip-path: url('#image-mask-small');
+        }
+      }
+      &:hover &__main img {
+        transform: scale(1.1);
+      }
+      &--flipped:hover &__background {
+        transform: rotate(-1deg);
+      }
+      &:hover &__background {
+        transform: rotate(1deg);
+
+        &:after {
+          opacity: 0;
+        }
+      }
+    }
+    &__title {
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    &__text {
+      color: $black;
+      font-size: 20px;
+      line-height: 1.2;
+      margin: 0;
+    }
+  }
+  &__button {
+    padding-top: 50px;
+    text-align: center;
+  }
+  &__bottom {
+    background: $cta;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba($black, 0.15);
+    height: 180px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 200;
+
+    .row {
+      height: 100% !important;
+    }
+    &__floater {
+      left: 60px;
+      position: absolute;
+      top: -60px;
+    }
+    > div > div {
+      align-self: center;
+    }
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 39px;
+    }
+    &__button {
+      text-align: center;
+    }
+  }
+
+  @include mobile() {
+    padding: 160px $horizontalPaddingMobile 100px $horizontalPaddingMobile;
+
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+      margin: 0 0 15px 0;
+    }
+    &__text {
+      margin: 0 0 60px 0;
+    }
+    &__item {
+      &__image {
+        margin: 0 auto 40px auto;
+      }
+    }
+    &__bottom {
+      height: auto;
+      margin: 60px #{10px - $horizontalPaddingMobile} 0 #{10px - $horizontalPaddingMobile};
+      padding: 140px 12px 60px 12px;
+
+      &__floater {
+        left: 70px;
+        top: -50px;
+      }
+      &__title {
+        padding: 10px 20px;
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .apply-now__bottom__floater {
+    animation: floater1 3s ease-in-out infinite;
+  }
+}

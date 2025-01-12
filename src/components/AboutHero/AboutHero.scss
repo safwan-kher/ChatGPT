@@ -1,0 +1,178 @@
+@import 'variables.scss';
+
+.about-hero {
+  padding: 150px 0 60px 0;
+
+  &__top {
+    height: 600px;
+    position: relative;
+  }
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 70px;
+    left: 0;
+    line-height: 1.2;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    width: 55%;
+    z-index: 200;
+
+    &::before {
+      background-image: url('/assets/icons/open-quote.svg');
+      background-repeat: no-repeat;
+      content: '';
+      height: 34px;
+      left: 0;
+      position: absolute;
+      top: -60px;
+      width: 44px;
+    }
+    &::after {
+      background-image: url('/assets/icons/end-quote.svg');
+      background-repeat: no-repeat;
+      content: '';
+      display: inline-block;
+      height: 34px;
+      left: 24px;
+      position: relative;
+      top: 50px;
+      width: 44px;
+    }
+  }
+  &__image {
+    display: block;
+    clip-path: url('#image-mask');
+    width: 100%;
+  }
+  &__image-wrapper {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    width: 55%;
+    z-index: 100;
+
+    &::after {
+      background-color: rgba($black, 0.2);
+      clip-path: url('#image-mask');
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+  &__bottom {
+    position: relative;
+  }
+  &__background-wrapper {
+    padding: 160px 15%;
+  }
+  &__background {
+    background-color: $backgroundAlt;
+    clip-path: url('#background-mask-mirror');
+    position: relative;
+    text-align: center;
+    top: -100px;
+  }
+  &__heading {
+    color: $black;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 53px;
+    margin: 0 0 30px 0;
+  }
+  &__text {
+    color: $black;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0 0 40px 0;
+  }
+  &__floater {
+    position: absolute;
+    z-index: 300;
+
+    &:nth-child(2) {
+      bottom: 70px;
+      right: 140px;
+    }
+    &:nth-child(3) {
+      left: 80px;
+      top: -150px;
+    }
+  }
+
+  @include mobile() {
+    padding: 70px 10px 130px 10px;
+
+    &__top {
+      height: 500px;
+    }
+    &__title {
+      font-size: 40px;
+      width: 100%;
+
+      &::before {
+        transform: scale(0.8);
+        top: -55px;
+      }
+      &::after {
+        left: 16px;
+        transform: scale(0.8);
+        top: 30px;
+      }
+    }
+    &__image-wrapper {
+      width: 100%;
+    }
+    &__background-wrapper {
+      padding: 140px 24px 80px 24px;
+    }
+    &__background {
+      clip-path: url('#background-mask-mobile-mirror');
+      top: -60px;
+    }
+    &__heading {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 30px;
+      margin: 0 0 20px 0;
+    }
+    &__text {
+      line-height: 1.2;
+    }
+    &__floater {
+      &:nth-child(2) {
+        bottom: 0px;
+        right: 40px;
+      }
+      &:nth-child(3) {
+        left: 5px;
+        top: -80px;
+      }
+    }
+  }
+}
+
+.slider-block--visible {
+  .about-hero__floater {
+    &:nth-child(2) {
+      animation: floater1 3s ease-in-out infinite;
+    }
+    &:nth-child(3) {
+      animation: floater2 3s ease-in-out infinite;
+    }
+
+    @include mobile() {
+      &:nth-child(2) {
+        animation-name: floaterMobile1Alt;
+        transform: scale(0.7);
+      }
+      &:nth-child(3) {
+        animation-name: floaterMobile2;
+      }
+    }
+  }
+}

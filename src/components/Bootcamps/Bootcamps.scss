@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+.bootcamps {
+  padding: 120px 0;
+
+  &__title {
+    color: $black;
+    font-weight: 700;
+    font-size: 45px;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+  &__logos {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__item {
+      height: 100%;
+      margin: 20px 45px;
+      opacity: 0.6;
+      transition: opacity $mediumTransition ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+      img {
+        display: block;
+        max-height: 80px;
+        max-width: 140px;
+      }
+    }
+  }
+
+  @include mobile() {
+    padding: 60px $horizontalPaddingMobile;
+
+    &__title {
+      font-size: 35px;
+    }
+    &__logos {
+      &__item {
+        max-width: calc(50% - 60px);
+        margin: 15px 30px;
+        min-width: calc(50% - 60px);
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+  }
+}

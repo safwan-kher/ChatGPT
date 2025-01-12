@@ -1,0 +1,61 @@
+@import "variables.scss";
+
+.badge-title {
+  position: relative;
+  z-index: 200;
+
+  &__text {
+    color: $black;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 68px;
+    margin: 0;
+    padding-right: 20%;
+    position: relative;
+    z-index: 200;
+  }
+  &__badge {
+    animation: fadeIn $mediumTransition $shortTransition ease-in-out forwards;
+    align-items: center;
+    background-color: $cta;
+    border-radius: 50%;
+    color: $white;
+    display: flex;
+    font-weight: 700;
+    font-size: 36px;
+    height: 120px;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    transform: rotate(22deg);
+    width: 120px;
+    z-index: 100;
+
+    &--small {
+      font-size: 20px;
+    }
+  }
+
+  @include mobile() {
+    &__text {
+      font-size: 40px;
+      line-height: 48px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    &__badge {
+      bottom: -55px;
+      font-size: 24px;
+      height: 76px;
+      left: auto !important;
+      right: 0;
+      top: auto !important;
+      width: 76px;
+
+      &--small {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import "variables.scss";
+
+.bootcamps-hero {
+  height: 357px;
+
+  .bootcamps-image {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
