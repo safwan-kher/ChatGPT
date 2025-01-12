@@ -1,0 +1,26 @@
+@import 'variables.scss';
+
+.gray-container {
+    background-color: $backgroundDark;
+}
+
+.course-list {
+    position: relative;
+    margin: 0;
+    padding: 0 1rem 3rem 1.5rem;
+}
+
+.button-container {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.gray-box {
+    background-color: $backgroundDark;
+    position: absolute;
+    bottom: 0;
+    top: 197px;
+    left: 0;
+    right: 0;
+}

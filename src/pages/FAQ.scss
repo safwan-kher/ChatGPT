@@ -1,0 +1,67 @@
+@import 'variables.scss';
+
+.faq {
+  .full-width-outer {
+    background-color: $background;
+  }
+  .full-width-inner {
+    padding-top: 95px;
+  }
+  &__group {
+    margin-bottom: 100px;
+  }
+  &__title {
+    color: $black;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 51px;
+    margin: 0 0 20px 0;
+  }
+  &__item {
+    background-image: url('/assets/icons/expand.svg');
+    background-repeat: no-repeat;
+    background-position: right 30px center;
+    border-bottom: 1px solid $grey;
+    padding: 30px 150px 30px 0;
+
+    &__question {
+      color: $black;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0;
+    }
+    &__answer {
+      color: $black;
+      display: none;
+      font-size: 18px;
+      line-height: 22px;
+    }
+    &--open {
+      background-image: url('/assets/icons/contract.svg');
+      background-position: right 30px top 40px;
+    }
+    &--open &__answer {
+      display: block;
+    }
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 60px 10px 0 10px;
+    }
+    &__title {
+      margin: 0;
+    }
+    &__item {
+      background-position: right 13px center;
+      padding: 30px 50px 30px 0;
+
+      &--open {
+        background-image: url('/assets/icons/contract.svg');
+        background-position: right 13px top 40px;
+      }
+    }
+  }
+}

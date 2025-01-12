@@ -1,0 +1,32 @@
+@import 'variables.scss';
+
+.first-steps {
+  .image-text-section {
+    padding-top: 130px;
+
+    @include mobile() {
+      padding-top: 0px;
+    }
+  }
+  .students-container {
+    padding-bottom: 145px;
+
+    @include mobile() {
+      padding-top: 123px;
+    }
+  }
+  .video-block-container {
+    padding-top: 220px;
+
+    @include mobile() {
+      padding-top: 115px;
+    }
+  }
+  .community-container {
+    margin-top: -200px;
+
+    @include mobile() {
+      margin-top: -100px;
+    }
+  }
+}

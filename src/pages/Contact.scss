@@ -1,0 +1,110 @@
+@import "variables.scss";
+
+.contact {
+  position: relative;
+
+  .full-width-inner {
+    padding: 120px 0 140px 0;
+  }
+
+  &__left {
+    padding-right: 20px;
+  }
+  &__title {
+    color: $white;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 49px;
+    margin: 0 0 20px 0;
+  }
+  &__text {
+    color: $white;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 0 30px 0;
+
+    p {
+      margin: 0 0 20px 0;
+    }
+  }
+  &__checkboxes {
+    margin-top: 30px;
+  }
+  &__button {
+    margin-top: 40px;
+  }
+  &__message {
+    color: $white;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  &__button-block {
+    background-color: $ctaDark;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    margin-left: 20px;
+    overflow: hidden;
+    position: relative;
+    width: calc(100% - 20px);
+
+    &__image {
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      transition: transform $mediumTransition ease-in-out;
+      transform-origin: right center;
+      z-index: 100;
+    }
+    &__inner {
+      background-color: rgba($black, 0.3);
+      border-radius: 4px;
+      padding: 45px;
+      position: relative;
+      width: 100%;
+      z-index: 200;
+    }
+    &__title {
+      color: $white;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 39px;
+      max-width: 80%;
+      min-height: 90px;
+      margin-bottom: 30px;
+    }
+    &:hover &__image {
+      transform: scale(1.1);
+    }
+  }
+
+  @include mobile() {
+    .full-width-inner {
+      padding: 30px $horizontalPaddingMobile 100px $horizontalPaddingMobile;
+    }
+    &__left {
+      padding-right: 0;
+    }
+    &__title {
+      font-size: 35px;
+      line-height: 36px;
+    }
+    &__button-block {
+      margin: 60px 0 15px 0;
+
+      &__inner {
+        padding: 45px 15px 40px 15px;
+      }
+      &__title {
+        margin-bottom: 20px;
+        max-width: none;
+        text-align: center;
+      }
+      &__button {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

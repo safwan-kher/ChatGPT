@@ -1,0 +1,54 @@
+@import 'variables.scss';
+
+.no-match {
+  &__wrapper {
+    align-items: center;
+    background-image: url('/assets/compass-background.svg');
+    background-repeat: no-repeat;
+    background-position: 65% 50%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    min-height: 600px;
+  }
+  &__content-wrapper {
+    padding: 120px;
+  }
+  &__content {
+    background-color: $backgroundAlt;
+    clip-path: url('#image-mask-small');
+    text-align: center;
+
+    h1 {
+      color: $black;
+      font-weight: 700;
+      font-size: 70px;
+      letter-spacing: $letterSpacing / 2;
+      margin: 0 0 10px 0;
+    }
+    p {
+      color: $black;
+      font-size: 20px;
+      line-height: 1.3;
+      margin: 0 0 40px 0;
+    }
+  }
+
+  @include mobile() {
+    &__wrapper {
+      background-position: 0 60%;
+      padding: 0 $horizontalPaddingMobile;
+      width: 100%;
+    }
+    &__content-wrapper {
+      padding: 80px 40px;
+    }
+    &__content {
+      width: 100%;
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  }
+}
