@@ -1,0 +1,5 @@
+<svg class="svg">
+  <clipPath id="image-mask-small-mirror" clipPathUnits="objectBoundingBox">
+    <path d="M1,0.112 C1,0.102,1,0.093,0.992,0.092 L0.018,0.002 C0.01,0.001,0.003,0.01,0.004,0.021 L0.093,0.986 C0.094,0.996,0.101,1,0.107,1 L0.929,0.889 C0.935,0.888,0.94,0.882,0.94,0.873 L1,0.112"></path>
+  </clipPath>
+</svg>
